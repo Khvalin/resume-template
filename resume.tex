@@ -1,60 +1,78 @@
 \documentclass{resume}
+\usepackage{hyperref}
 
-\usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.6in]{geometry}
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks,
+    linkcolor={blue!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+
+% TODO: update to set a different font family
+\RequirePackage{fontspec}
+\setmainfont{Carlito}
+
+\usepackage[left=1in,top=0.6in,right=1in,bottom=0.6in]{geometry}
 
 \name{John Q. Public}
-\address{ 4489 Oxford Lane \\ San Antonio, PA 90024  }
-\address{ 555~$\cdot$~356~$\cdot$~7936 \\ jpublic@example.edu }
+\title{Senior Software Engineer}
+\address{+1 (555) 356-7936 \\ {jpublic@example.edu}}
 
 \def\nameskip{\bigskip}
 \def\sectionskip{\medskip}
 
 \begin{document}
+    \begin{rSection} {Summary}
+      Lorem ipsum dolor sit amet, consectetur scalability elit, sed do modular workflows tempor incididunt ut labore et DevOps magna. Ut enim ad minim automation, quis nostrud cloud-native exercitation ullamco microservices nisi ut aliquip ex full-stack commodo.
+    \end{rSection}
+    \begin{rSection}{Skills}
+      \begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
+        Languages & Prolog, Haskell, AWK, Erlang, Scheme, ML \\
+        Databases & MySQL, PostgreSQL, Microsoft SQL \\
+        Frameworks/tools & React \\
+        Other & OIDC, SSO \\
+      \end{tabular}
+    \end{rSection}
 
-  \begin{rSection}{Education}
-    {\bf University of California, Berkeley} \hfill {\em June 2004} \\ 
-    { B.S. in Computer Science \& Engineering } \\
-    { Minor in Linguistics } \smallskip \\
-    { Member of Eta Kappa Nu } \\
-    { Member of Upsilon Pi Epsilon } \\
-    Overall GPA: 5.678
-  \end{rSection}
-  
-  \begin{rSection}{Experience}
-  
-    \begin{rSubsection}{ACME, Inc}{October 2010 - Present}{Web Developer}{Palo Alto, CA}
+    \begin{rSection}{Work Experience}
+  \begin{rSubsection}{ACME, Inc}{Oct. 2010 - Now}{Web Developer}{Palo Alto, CA}
     \item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus.
-    \item Donec et mollis dolor. Praesent et diam eget libero Adobe Coldfusion egestas mattis sit amet vitae augue.
-    \item Nam tincidunt congue enim, ut porta lorem Microsoft SQL lacinia consectetur.
+    \item Donec et mollis dolor. Praesent et diam eget libero \textbf{Adobe ColdFusion} egestas mattis sit amet vitae augue.
+    \item Nam tincidunt congue enim, ut porta lorem \textbf{Microsoft SQL} lacinia consectetur.
     \item Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    \item Pellentesque auctor nisi id magna consequat JavaScript sagittis.
-    \item Aliquam at massa ipsum. Quisque bash bibendum purus convallis nulla ultrices ultricies.
-    \end{rSubsection}
-  
-    \begin{rSubsection}{AJAX Hosting}{December 2009 - October 2010}{Lead Developer}{Austin, TX}
-    \item Aenean ut gravida lorem. Ut turpis felis, Perl pulvinar a semper sed, adipiscing id dolor.
-    \item Curabitur dapibus enim sit amet elit pharetra tincidunt website feugiat nisl imperdiet. Ut convallis AJAX libero in urna ultrices accumsan.
-    \item Cum sociis natoque penatibus et magnis dis MySQL parturient montes, nascetur ridiculus mus.
+    \item Pellentesque auctor nisi id magna consequat \textbf{JavaScript} sagittis.
+    \item Aliquam at massa ipsum. Quisque \textbf{bash} bibendum purus convallis nulla ultrices ultricies.
+  \end{rSubsection}
+
+
+  \begin{rSubsection}{AJAX Hosting}{Dec. 2009 - Oct. 2010}{Lead Developer}{Austin, TX}
+    \item Aenean ut gravida lorem. Ut turpis felis, \textbf{Perl} pulvinar a semper sed, adipiscing id dolor.
+    \item Curabitur dapibus enim sit amet elit pharetra tincidunt website feugiat nisl imperdiet. Ut convallis \textbf{AJAX} libero in urna ultrices accumsan.
+    \item Cum sociis natoque penatibus et magnis dis \textbf{MySQL} parturient montes, nascetur ridiculus mus.
     \item In rutrum accumsan ultricies. Mauris vitae nisi at sem facilisis semper ac in est.
     \item Nullam cursus suscipit nisi, et ultrices justo sodales nec. Fusce venenatis facilisis lectus ac semper.
-    \end{rSubsection}
+    \item Integer nec odio. Praesent libero sed cursus ante dapibus diam. Sed nisi nulla, \textbf{PHP} fermentum id, elementum eget erat.
+    \item Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; \textbf{JavaScript} tincidunt sapien ut tincidunt.
+  \end{rSubsection}
 
-    \begin{rSubsection}{TinySoft}{January 2008 - April 2010}{Web Designer \& Developer}{Gainesville, GA}
-    \item Vivamus PostgreSQL fermentum semper porta. Nunc diam velit PHP, adipiscing ut tristique vitae
+  \begin{rSubsection}{TinySoft}{Jan. 2008 - Apr. 2010}{Web Designer \& Developer}{Gainesville, GA}
+    \item Vivamus \textbf{PostgreSQL} fermentum semper porta. Nunc diam velit \textbf{PHP}, adipiscing ut tristique vitae
     \item Maecenas convallis ullamcorper ultricies stylesheets.
-    \item Quisque mi metus, unit tests CSS ornare sit amet fermentum et, tincidunt et orci.
+    \item Quisque mi metus, unit tests \textbf{CSS} ornare sit amet fermentum et, tincidunt et orci.
     \item Curabitur venenatis pulvinar tellus gravida ornare. Sed et erat faucibus nunc euismod ultricies ut id
-    \end{rSubsection}
-  
+  \end{rSubsection}
+
   \end{rSection}
-  
-  \begin{rSection}{Technical Strengths}
-    \begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
-      Computer Languages & Prolog, Haskell, AWK, Erlang, Scheme, ML \\
-      Protocols \& APIs & XML, JSON, SOAP, REST \\
-      Databases & MySQL, PostgreSQL, Microsoft SQL \\
-      Tools & SVN, Vim, Emacs
-    \end{tabular}
+
+
+  \begin{rSection}{Education}
+    {Magister in Quantum Systems and Applied Backend Theory}\\
+    {Polytechnica Novus Orbis}\\
+    {Specialization in container orchestration, neural mesh optimization, and scalable cloud grammars}\\
+
+
   \end{rSection}
 
 \end{document}

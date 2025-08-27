@@ -12,6 +12,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
 \ProvidesClass{resume}[2010/07/10 v0.9 Resume class]
 
 \LoadClass[11pt,letterpaper]{article}
@@ -29,7 +30,10 @@
 \def \name#1{\def\@name{#1}}        % \name command can be used to set name
 \def \@name {}                      % Set \@name to empty by default
 
-\def \addressSep {$\diamond$}         % Set default address seperator
+\def \title#1{\def\@title{#1}}        % \name command can be used to set name
+\def \@title {}                      % Set \@name to empty by default
+
+\def \addressSep {$|$}         % Set default address seperator
 
 % One or two address lines can be specified 
 \let \@addressone \relax
@@ -57,17 +61,23 @@
 % \printname is used to print the name as a page header
 \def \printname {
   \begingroup
-    \centerline{\textbf{\MakeUppercase{\namesize\@name}}}
+    \centerline{\namesize\textbf {\@name}}
+    \vspace{1.0em}
+    \centerline{
+      {\titlesize\textbf {\@title}}
+    }
+  \vspace{0.75em}
   \endgroup
-  \par
-  \nameskip
 }
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DOCUMENT: Create the head of the document
 
-\AtBeginDocument{                     % Begin document
-  \printname                        % Print the name specified with \name
+\let\ori@document=\document
+\renewcommand{\document}{
+  \ori@document                     % Begin document
+  \printname                        % Print the name specified with \name                        % Print the name specified with \name
   \@ifundefined{@addressone}{}{     % Print the first address if specified
     \printaddress{\@addressone}}
   \@ifundefined{@addresstwo}{}{     % Print the second address if specified
@@ -80,11 +90,12 @@
 % Used to create large resume section
 \newenvironment{rSection}[1]{
   \sectionskip
-  \textbf{\MakeUppercase{#1}}
+  \MakeUppercase{\textbf {#1}}
   \sectionlineskip
   \hrule
   \begin{list}{}{
-    \setlength{\leftmargin}{1.5em}
+    \raggedright
+    \setlength{\leftmargin}{0.5em}
   }
   \item[]
 }{
@@ -97,13 +108,17 @@
   %%    Employer (bold)                     Dates (regular)    %%
   %%    Title (emphasis)                Location (emphasis)    %%
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \textbf{#1}                 \hfill                  {    #2}% Stop a space
+  {\employersize \textbf {#1}}                 \hfill                  {    #2}% Stop a space
   \ifthenelse{\equal{#3}{}}{}{
   \\
-  \emph{#3}                \hfill                  \emph{#4}% Stop a space
+  {\textbf {#3}}                 \hfill                  {\em #4}% Stop a space
   }\smallskip
+  
   % \cdot used for bullets, items non-indented
-  \begin{list}{$\cdot$}{\leftmargin=0em}
+  \begin{list}{$\bullet$}{
+    \setlength{\rightmargin}{11em}
+    \setlength{\leftmargin}{2em}
+  }
   \itemsep -0.5em \vspace{-0.5em}
 }{
   \end{list}
@@ -111,6 +126,8 @@
 }
 
 \def\namesize{\huge}
+\def\titlesize{\LARGE}
+\def\employersize{\large}
 \def\nameskip{\medskip}
 \def\addressskip{\smallskip}
 \def\sectionskip{\bigskip}
