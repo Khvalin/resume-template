@@ -6,6 +6,11 @@ head of the document and provides resume section and subsection environments
 `rSubsection` heading format, and the skip sizes defined in `resume.cls` can be
 customized.
 
+### Generating a PDF
+- Install Tectonic: [https://tectonic-typesetting.github.io/en-US/index.html](https://tectonic-typesetting.github.io/en-US/index.html).
+- Set your desired font in `resume.tex`, line 15.
+- Run: `tectonic resume.tex`
+
 ### License
 
 Please see LICENSE file.
